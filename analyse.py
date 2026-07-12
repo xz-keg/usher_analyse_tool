@@ -169,17 +169,19 @@ def node_browser(node,current_lineage,current_seq,mutation_from_last,backcount):
                                                 local_ref=local_ref[:ii]+local_ref[ii+1:]
                                                 if ii<pot:
                                                     pot-=1
-                                                                                
-                                        aa_1=table[local_ref[pot-3:pot]]                                
-                                        aa_2=table[local_ref[pot-6:pot-3]]
-                                        aa_n1=table[local_ref[pot+3:pot+6]]
-                                        aa_n2=table[local_ref[pot+6:pot+9]]
-                                        if aa_2=='N' and aa_1!='P' and (aa in ['S','T'] and not(old_aa in ['S','T'])):
-                                            n_glycan=True
-                                        if aa_1=='N' and old_aa=='P' and aa_n1 in ['S','T']:
-                                            n_glycan=True
-                                        if aa=='N' and aa_n1!='P' and aa_n2 in ['S','T']:
-                                            n_glycan=True
+                                        #print('local_ref:',local_ref,'pot:',pot)  
+                                        if pot>=6:                       
+                                            aa_1=table[local_ref[pot-3:pot]]  
+                                                                        
+                                            aa_2=table[local_ref[pot-6:pot-3]]
+                                            aa_n1=table[local_ref[pot+3:pot+6]]
+                                            aa_n2=table[local_ref[pot+6:pot+9]]
+                                            if aa_2=='N' and aa_1!='P' and (aa in ['S','T'] and not(old_aa in ['S','T'])):
+                                                n_glycan=True
+                                            if aa_1=='N' and old_aa=='P' and aa_n1 in ['S','T']:
+                                                n_glycan=True
+                                            if aa=='N' and aa_n1!='P' and aa_n2 in ['S','T']:
+                                                n_glycan=True
                                                     
 
 
